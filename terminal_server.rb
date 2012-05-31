@@ -1,7 +1,5 @@
 #/usr/bin/env ruby
 
-require 'readline'
-
 class TerminalServer
   attr_accessor :servername
 
@@ -14,6 +12,8 @@ class TerminalServer
   end
 
   def self.prompt_for_server(username)
+    require 'readline'
+
     servers         = servers_for_user(username)
 
     if servers.length > 1
@@ -62,8 +62,6 @@ class TerminalServer
 
   def initialize(servername, options={})
     @servername = servername
-
-    @sessions = load_sessions if options[:load_sessions]
 
     self.class.servers << self
   end
@@ -168,7 +166,7 @@ if __FILE__ == $PROGRAM_NAME
 
   if options[:all] || options[:user]
     ['styx','prometheus','castor','pollux','aura','athena','artemis','mcag_server_02'].each do |name|
-      TerminalServer.new(name, :load_sessions => true)
+      TerminalServer.new(name)
     end
   end
 
