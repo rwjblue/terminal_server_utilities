@@ -57,3 +57,9 @@ If a given user has multiple sessions you will be prompted to select which sessi
         2. mcag_server_02       (Active)
   >
 ```
+
+License
+=======
+This software is licensed under a modified BSD license.
+
+See LICENSE for more details.
