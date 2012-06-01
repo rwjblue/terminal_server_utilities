@@ -1,4 +1,4 @@
-#/usr/bin/env ruby
+#!/usr/bin/env ruby
 
 class TerminalServer
   attr_accessor :servername
@@ -127,10 +127,19 @@ end
 if __FILE__ == $PROGRAM_NAME
   require 'optparse'
 
-  options = {}
+  options = {:servers => []}
+
   option_parser = OptionParser.new do |opts|
     opts.on('-a','--all', 'List all users on all servers.') do
       options[:all] = true
+    end
+
+    opts.on('--server-file FILENAME', 'Read list of servers from a file (each servername should be on a single line).') do |filename|
+      options[:servers] << File.read(filename).split("\n")
+    end
+
+    opts.on('--server SERVERNAME', 'Initialize a server instance.') do |servername|
+      options[:servers] << servername
     end
 
     opts.on('-u USER','--user USER', 'List or shadow for a specific user only.') do |user|
@@ -165,7 +174,7 @@ if __FILE__ == $PROGRAM_NAME
   option_parser.parse!
 
   if options[:all] || options[:user]
-    ['styx','prometheus','castor','pollux','aura','athena','artemis','mcag_server_02'].each do |name|
+    options[:servers].each do |name|
       TerminalServer.new(name)
     end
   end

@@ -1,14 +1,16 @@
 Command Line Usage
 ==================
     Usage: terminal_server [options]
-        -a, --all                        List all users on all servers.
-        -u, --user USER                  List or shadow for a specific user only.
-        -s, --shadow                     Shadow a user. (requires --user)
-        -r, --reset                      Terminate a users session immediately.  (requires --user)
-        -l, --logoff                     Logoff a users session.  (requires --user)
-        -d, --disconnect                 Disconnect a users session.  (requires --user)
-        -m, --message MESSAGE            Message a user.  (requires --user or --all)
-        -v, --verbose
+    -a, --all                        List all users on all servers.
+        --server-file FILENAME       Read list of servers from a file (each servername should be on a single line).
+        --server SERVERNAME          Initialize a server instance.
+    -u, --user USER                  List or shadow for a specific user only.
+    -s, --shadow                     Shadow a user. (requires --user)
+    -r, --reset                      Terminate a users session immediately.  (requires --user)
+    -l, --logoff                     Logoff a users session.  (requires --user)
+    -d, --disconnect                 Disconnect a users session.  (requires --user)
+    -m, --message MESSAGE            Message a single user or all users.  (requires --user or --all)
+    -v, --verbose
 
 Library Usage
 =============
