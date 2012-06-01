@@ -55,8 +55,8 @@ If a given user has multiple sessions you will be prompted to select which sessi
   ruby terminal_server.rb --user robertj --disconnect
 
   This user is logged into multiple servers. Please select which session you would like to shadow from the list below:
-        1. styx                 (Active)
-        2. mcag_server_02       (Active)
+        1. server01             (Active)
+        2. server02             (Active)
   >
 ```
 
